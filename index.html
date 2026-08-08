@@ -2,15 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Dodo's Mini Games 🎮</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
@@ -18,7 +14,6 @@ body{
     color:white;
     font-family:Arial,sans-serif;
     text-align:center;
-    transition:.3s;
 }
 
 button{
@@ -30,7 +25,6 @@ button{
     cursor:pointer;
     font-weight:bold;
     margin:5px;
-    transition:.15s;
 }
 
 button:hover{
@@ -44,17 +38,11 @@ button:hover{
     padding:25px;
 }
 
-#home{
-    display:block;
-}
+#home{display:block}
 
-h1{
-    font-size:44px;
-}
+h1{font-size:44px}
 
-.subtitle{
-    color:#aaa;
-}
+.subtitle{color:#aaa}
 
 .stats{
     display:flex;
@@ -84,7 +72,6 @@ h1{
     padding:20px;
     border-radius:18px;
     cursor:pointer;
-    transition:.2s;
 }
 
 .card:hover{
@@ -92,9 +79,7 @@ h1{
     border-color:#7c5cff;
 }
 
-.icon{
-    font-size:45px;
-}
+.icon{font-size:45px}
 
 .xpBar{
     width:400px;
@@ -111,6 +96,8 @@ h1{
     width:0%;
     background:#7c5cff;
 }
+
+/* CATCH */
 
 #game{
     width:600px;
@@ -153,6 +140,8 @@ h1{
     flex-direction:column;
 }
 
+/* MEMORY */
+
 #memoryGrid{
     width:320px;
     height:400px;
@@ -172,17 +161,11 @@ h1{
     cursor:pointer;
 }
 
-.memory.flash{
-    background:red;
-}
+.memory.flash{background:red}
+.memory.correct{background:#00c853}
+.memory.wrong{background:#d50000}
 
-.memory.correct{
-    background:#00c853;
-}
-
-.memory.wrong{
-    background:#d50000;
-}
+/* REACTION */
 
 .reaction{
     width:600px;
@@ -198,13 +181,10 @@ h1{
     cursor:pointer;
 }
 
-.reaction.wait{
-    background:#b00020;
-}
+.reaction.wait{background:#b00020}
+.reaction.go{background:#00b84f}
 
-.reaction.go{
-    background:#00b84f;
-}
+/* COLOR */
 
 .colorGame{
     max-width:600px;
@@ -226,9 +206,7 @@ h1{
     gap:10px;
 }
 
-.colorButtons button{
-    min-height:55px;
-}
+/* TARGET */
 
 #targetArea{
     width:600px;
@@ -252,6 +230,8 @@ h1{
     cursor:pointer;
 }
 
+/* SHOP */
+
 .shop{
     max-width:1000px;
     margin:auto;
@@ -266,29 +246,13 @@ h1{
     padding:20px;
 }
 
-.shopIcon{
-    font-size:55px;
-}
+.shopIcon{font-size:55px}
 
-.common{
-    color:#ddd;
-}
-
-.rare{
-    color:#4da6ff;
-}
-
-.epic{
-    color:#b56cff;
-}
-
-.legendary{
-    color:gold;
-}
-
-.mythic{
-    color:#ff4050;
-}
+.common{color:#ddd}
+.rare{color:#4da6ff}
+.epic{color:#b56cff}
+.legendary{color:gold}
+.mythic{color:#ff4050}
 
 .quest,
 .achievement,
@@ -301,9 +265,7 @@ h1{
     border-radius:15px;
 }
 
-.achievement.locked{
-    opacity:.4;
-}
+.achievement.locked{opacity:.4}
 
 .notification{
     position:fixed;
@@ -323,39 +285,154 @@ h1{
     transform:translate(-50%,0);
 }
 
-.cyber{
-    background:#050014;
+/* DOTS & BOXES */
+
+.dotsControls{
+    margin:15px auto;
 }
 
-.ocean{
-    background:#001522;
+#dotsBoard{
+    margin:20px auto;
+    display:grid;
+    gap:0;
+    justify-content:center;
+    align-content:center;
+    background:#171922;
+    padding:20px;
+    border-radius:18px;
+    width:max-content;
+    max-width:95vw;
+    overflow:auto;
 }
 
-.lava{
-    background:#240600;
+.dotRow{
+    display:flex;
+    height:42px;
 }
 
-.forest{
-    background:#061408;
+.dotCell{
+    width:42px;
+    height:42px;
+    position:relative;
 }
 
-.candy{
-    background:#250018;
+.dot{
+    width:14px;
+    height:14px;
+    background:white;
+    border-radius:50%;
+    position:absolute;
+    left:14px;
+    top:14px;
+    z-index:3;
 }
 
-select{
-    padding:10px;
-    border-radius:8px;
+.edgeH,
+.edgeV{
+    position:absolute;
+    background:#444;
+    cursor:pointer;
+    z-index:1;
+    border-radius:5px;
 }
+
+.edgeH{
+    width:34px;
+    height:8px;
+    left:21px;
+    top:17px;
+}
+
+.edgeV{
+    width:8px;
+    height:34px;
+    left:17px;
+    top:21px;
+}
+
+.edgeH:hover,
+.edgeV:hover{
+    background:#aaa;
+}
+
+.edgeH.p1,
+.edgeV.p1{
+    background:#ff3355;
+}
+
+.edgeH.p2,
+.edgeV.p2{
+    background:#3399ff;
+}
+
+.square{
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:20px;
+    pointer-events:none;
+    z-index:0;
+}
+
+.square.p1{color:#ff3355}
+.square.p2{color:#3399ff}
+
+.dotsScores{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    font-size:20px;
+    margin:15px;
+}
+
+.playerTurn{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.hidden{display:none}
+
+.cyber{background:#050014}
+.ocean{background:#001522}
+.lava{background:#240600}
+.forest{background:#061408}
+.candy{background:#250018}
 
 @media(max-width:600px){
+    h1{font-size:34px}
 
-    h1{
-        font-size:34px;
+    .dotRow{
+        height:32px;
     }
 
-}
+    .dotCell{
+        width:32px;
+        height:32px;
+    }
 
+    .dot{
+        width:11px;
+        height:11px;
+        left:10px;
+        top:10px;
+    }
+
+    .edgeH{
+        width:25px;
+        height:6px;
+        left:16px;
+        top:13px;
+    }
+
+    .edgeV{
+        width:6px;
+        height:25px;
+        left:13px;
+        top:16px;
+    }
+}
 </style>
 </head>
 
@@ -363,384 +440,252 @@ select{
 
 <div id="notification" class="notification"></div>
 
-
-<!-- ================= HOME ================= -->
-
+<!-- HOME -->
 <div id="home" class="page">
 
 <h1>🎮 DODO'S MINI GAMES</h1>
-
-<p class="subtitle">
-The website that started as Catch The Box 😭
-</p>
+<p class="subtitle">The website that started as Catch The Box 😭</p>
 
 <div class="stats">
-
-<div class="stat">
-⭐ Level <span id="level">1</span>
-</div>
-
-<div class="stat">
-💰 <span id="coins">0</span>
-</div>
-
-<div class="stat">
-🔥 <span id="streak">0</span>
-</div>
-
+<div class="stat">⭐ Level <span id="level">1</span></div>
+<div class="stat">💰 <span id="coins">0</span></div>
+<div class="stat">🔥 <span id="streak">0</span></div>
 </div>
 
 <div class="xpBar">
-
 <div id="xpFill" class="xpFill"></div>
-
 </div>
 
-<p>
-<span id="xp">0</span> XP
-</p>
-
+<p><span id="xp">0</span> XP</p>
 
 <div class="menu">
 
-
 <div class="card" onclick="startCatch()">
-
 <div class="icon">🎯</div>
-
 <h2>Catch The Box</h2>
-
 <p>Catch the box!</p>
-
 </div>
-
 
 <div class="card" onclick="startMemory()">
-
 <div class="icon">🧠</div>
-
 <h2>Memory</h2>
-
 <p>Remember the pattern!</p>
-
 </div>
-
 
 <div class="card" onclick="openPage('reaction')">
-
 <div class="icon">⚡</div>
-
 <h2>Reaction Test</h2>
-
 <p>How fast are you?</p>
-
 </div>
-
 
 <div class="card" onclick="startColor()">
-
 <div class="icon">🎨</div>
-
 <h2>Color Match</h2>
-
 <p>Match the color!</p>
-
 </div>
-
 
 <div class="card" onclick="startTargets()">
-
 <div class="icon">🎯</div>
-
 <h2>Target Rush</h2>
-
 <p>Destroy targets!</p>
-
 </div>
 
+<div class="card" onclick="openPage('dots')">
+<div class="icon">🔴🔵</div>
+<h2>Dots & Boxes</h2>
+<p>Make squares!</p>
+</div>
 
 <div class="card" onclick="openPage('shop')">
-
 <div class="icon">🛒</div>
-
 <h2>Shop</h2>
-
 <p>Buy cosmetics.</p>
-
 </div>
-
 
 <div class="card" onclick="openPage('quests')">
-
 <div class="icon">📜</div>
-
 <h2>Daily Quests</h2>
-
 <p>Complete challenges.</p>
-
 </div>
-
 
 <div class="card" onclick="openPage('achievements')">
-
 <div class="icon">🏆</div>
-
 <h2>Achievements</h2>
-
 <p>Unlock achievements.</p>
-
 </div>
-
 
 <div class="card" onclick="openPage('stats')">
-
 <div class="icon">📊</div>
-
 <h2>Stats</h2>
-
 <p>Your records.</p>
-
 </div>
-
 
 <div class="card" onclick="openPage('settings')">
-
 <div class="icon">⚙️</div>
-
 <h2>Settings</h2>
-
 <p>Customize the game.</p>
-
 </div>
 
 </div>
-
 </div>
 
 
-<!-- ================= CATCH ================= -->
-
+<!-- CATCH -->
 <div id="catch" class="page">
 
 <h1>🎯 Catch The Box</h1>
 
 <div class="stats">
-
-<div class="stat">
-Score:
-<span id="catchScore">0</span>
+<div class="stat">Score: <span id="catchScore">0</span></div>
+<div class="stat">Time: <span id="catchTime">30</span></div>
+<div class="stat">🔥 Combo: <span id="combo">0</span></div>
+<div class="stat">🥇 Best: <span id="catchBest">0</span></div>
 </div>
-
-<div class="stat">
-Time:
-<span id="catchTime">30</span>
-</div>
-
-<div class="stat">
-🔥 Combo:
-<span id="combo">0</span>
-</div>
-
-<div class="stat">
-🥇 Best:
-<span id="catchBest">0</span>
-</div>
-
-</div>
-
 
 <div id="game">
 
 <div id="box">
-
-<div id="boxCosmetic"
-class="cosmeticEmoji"></div>
-
+<div id="boxCosmetic" class="cosmeticEmoji"></div>
 </div>
 
-
-<div id="catchOver"
-class="gameOver">
-
+<div id="catchOver" class="gameOver">
 <h2>💀 GAME OVER</h2>
-
 <h2 id="finalCatch"></h2>
-
 <p id="earnedCatch"></p>
-
-<button onclick="startCatch()">
-🔄 PLAY AGAIN
-</button>
-
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
-
+<button onclick="startCatch()">🔄 PLAY AGAIN</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 </div>
 
 </div>
 
-
-<button onclick="startCatch()">
-START
-</button>
-
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="startCatch()">START</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
 
-<!-- ================= MEMORY ================= -->
-
+<!-- MEMORY -->
 <div id="memory" class="page">
 
 <h1>🧠 Memory</h1>
 
 <div class="stats">
-
-<div class="stat">
-Round:
-<span id="memoryRound">1</span>
+<div class="stat">Round: <span id="memoryRound">1</span></div>
+<div class="stat">Time: <span id="memoryTime">3</span></div>
+<div class="stat">🥇 Best: <span id="memoryBest">0</span></div>
 </div>
 
-<div class="stat">
-Time:
-<span id="memoryTime">3</span>
-</div>
-
-<div class="stat">
-🥇 Best:
-<span id="memoryBest">0</span>
-</div>
-
-</div>
-
-<h2 id="memoryStatus">
-WATCH!
-</h2>
+<h2 id="memoryStatus">WATCH!</h2>
 
 <div id="memoryGrid"></div>
 
-<button onclick="startMemory()">
-🔄 RESTART
-</button>
-
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="startMemory()">🔄 RESTART</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
 
-<!-- ================= REACTION ================= -->
-
+<!-- REACTION -->
 <div id="reaction" class="page">
 
 <h1>⚡ Reaction Test</h1>
-
-<p>
-Wait until the screen turns GREEN!
-</p>
+<p>Wait until the screen turns GREEN!</p>
 
 <div id="reactionBox"
 class="reaction"
 onclick="reactionClick()">
-
 CLICK TO START
-
 </div>
 
-<h2>
-🥇 Best:
-<span id="reactionBest">---</span>
-</h2>
+<h2>🥇 Best: <span id="reactionBest">---</span></h2>
 
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
 
-<!-- ================= COLOR ================= -->
-
+<!-- COLOR -->
 <div id="color" class="page">
 
 <h1>🎨 Color Match</h1>
-
-<p>
-Click the COLOR of the word!
-</p>
+<p>Click the COLOR of the word!</p>
 
 <div class="colorGame">
-
-<div id="colorWord"
-class="colorWord">
-
-RED
-
+<div id="colorWord" class="colorWord">RED</div>
+<div id="colorButtons" class="colorButtons"></div>
 </div>
 
-<div id="colorButtons"
-class="colorButtons">
+<h2>Score: <span id="colorScore">0</span></h2>
+<h3>🥇 Best: <span id="colorBest">0</span></h3>
 
-</div>
-
-</div>
-
-<h2>
-Score:
-<span id="colorScore">0</span>
-</h2>
-
-<h3>
-🥇 Best:
-<span id="colorBest">0</span>
-</h3>
-
-<button onclick="startColor()">
-🔄 RESTART
-</button>
-
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="startColor()">🔄 RESTART</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
 
-<!-- ================= TARGET ================= -->
-
+<!-- TARGET -->
 <div id="target" class="page">
 
 <h1>🎯 Target Rush</h1>
 
 <div class="stats">
-
-<div class="stat">
-Score:
-<span id="targetScore">0</span>
+<div class="stat">Score: <span id="targetScore">0</span></div>
+<div class="stat">Time: <span id="targetTime">30</span></div>
+<div class="stat">🥇 Best: <span id="targetBest">0</span></div>
 </div>
-
-<div class="stat">
-Time:
-<span id="targetTime">30</span>
-</div>
-
-<div class="stat">
-🥇 Best:
-<span id="targetBest">0</span>
-</div>
-
-</div>
-
 
 <div id="targetArea"></div>
 
+<button onclick="startTargets()">🔄 RESTART</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
-<button onclick="startTargets()">
+</div>
+
+
+<!-- DOTS -->
+<div id="dots" class="page">
+
+<h1>🔴 Dots & Boxes 🔵</h1>
+
+<p>Draw lines and complete squares!</p>
+
+<div class="dotsControls">
+
+<button onclick="startDots('local')">
+👥 2 PLAYER
+</button>
+
+<button onclick="startDots('bot')">
+🤖 VS BOT
+</button>
+
+</div>
+
+<div id="dotsSetup">
+
+<h3>Board Size</h3>
+
+<button onclick="setDotsSize(6)">6 × 6</button>
+<button onclick="setDotsSize(8)">8 × 8</button>
+<button onclick="setDotsSize(10)">10 × 10</button>
+
+</div>
+
+<div class="dotsScores">
+
+<div>🔴 YOU: <span id="dotsP1Score">0</span></div>
+<div>🔵 <span id="dotsP2Name">PLAYER 2</span>: <span id="dotsP2Score">0</span></div>
+
+</div>
+
+<div id="dotsTurn" class="playerTurn">
+Choose a mode!
+</div>
+
+<div id="dotsBoard"></div>
+
+<button onclick="startDots(dotsMode || 'bot')">
 🔄 RESTART
 </button>
 
@@ -751,158 +696,88 @@ Time:
 </div>
 
 
-<!-- ================= SHOP ================= -->
-
+<!-- SHOP -->
 <div id="shop" class="page">
 
 <h1>🛒 SHOP</h1>
+<h2>💰 <span id="shopCoins">0</span></h2>
 
-<h2>
-💰 <span id="shopCoins">0</span>
-</h2>
+<div id="shopItems" class="shop"></div>
 
-<div id="shopItems"
-class="shop">
-</div>
-
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
 
-<!-- ================= QUESTS ================= -->
-
+<!-- QUESTS -->
 <div id="quests" class="page">
 
 <h1>📜 DAILY QUESTS</h1>
-
 <div id="questList"></div>
 
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
 
-<!-- ================= ACHIEVEMENTS ================= -->
-
+<!-- ACHIEVEMENTS -->
 <div id="achievements" class="page">
 
 <h1>🏆 ACHIEVEMENTS</h1>
-
 <div id="achievementList"></div>
 
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
 
-<!-- ================= STATS ================= -->
-
+<!-- STATS -->
 <div id="stats" class="page">
 
 <h1>📊 STATS</h1>
-
 <div id="statsList"></div>
 
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
 
-<!-- ================= SETTINGS ================= -->
-
+<!-- SETTINGS -->
 <div id="settings" class="page">
 
 <h1>⚙️ SETTINGS</h1>
 
-
 <div class="setting">
-
 🎵 Music
-
-<button id="musicButton"
-onclick="toggleMusic()">
-
-ON
-
-</button>
-
+<button id="musicButton" onclick="toggleMusic()">ON</button>
 </div>
 
-
 <div class="setting">
-
 🎨 Theme
 
-<select id="theme"
-onchange="changeTheme()">
-
+<select id="theme" onchange="changeTheme()">
 <option value="">🌑 Default</option>
-
-<option value="cyber">
-🌌 Cyber
-</option>
-
-<option value="ocean">
-🌊 Ocean
-</option>
-
-<option value="lava">
-🌋 Lava
-</option>
-
-<option value="forest">
-🌲 Forest
-</option>
-
-<option value="candy">
-🍬 Candy
-</option>
-
+<option value="cyber">🌌 Cyber</option>
+<option value="ocean">🌊 Ocean</option>
+<option value="lava">🌋 Lava</option>
+<option value="forest">🌲 Forest</option>
+<option value="candy">🍬 Candy</option>
 </select>
 
 </div>
 
-
 <div class="setting">
-
 🏆 Achievement Popups
-
-<button id="popupButton"
-onclick="togglePopups()">
-
-ON
-
-</button>
-
+<button id="popupButton" onclick="togglePopups()">ON</button>
 </div>
-
 
 <div class="setting">
-
-🔥 Streak:
-<span id="settingsStreak">0</span>
-
+🔥 Streak: <span id="settingsStreak">0</span>
 </div>
 
-
-<button onclick="resetGame()">
-💀 RESET EVERYTHING
-</button>
-
+<button onclick="resetGame()">💀 RESET EVERYTHING</button>
 <br>
-
-<button onclick="openPage('home')">
-🏠 HOME
-</button>
+<button onclick="openPage('home')">🏠 HOME</button>
 
 </div>
 
@@ -913,173 +788,56 @@ ON
    SAVE DATA
 ===================================================== */
 
-let coins =
-Number(localStorage.getItem("coins")) || 0;
+let coins=Number(localStorage.getItem("coins"))||0;
+let xp=Number(localStorage.getItem("xp"))||0;
+let level=Number(localStorage.getItem("level"))||1;
+let streak=Number(localStorage.getItem("streak"))||0;
 
-let xp =
-Number(localStorage.getItem("xp")) || 0;
+let bestCatch=Number(localStorage.getItem("bestCatch"))||0;
+let bestMemory=Number(localStorage.getItem("bestMemory"))||0;
+let reactionBest=Number(localStorage.getItem("reactionBest"))||0;
+let colorBest=Number(localStorage.getItem("colorBest"))||0;
+let targetBest=Number(localStorage.getItem("targetBest"))||0;
+let dotsBest=Number(localStorage.getItem("dotsBest"))||0;
 
-let level =
-Number(localStorage.getItem("level")) || 1;
+let totalGames=Number(localStorage.getItem("totalGames"))||0;
+let totalEarned=Number(localStorage.getItem("totalEarned"))||0;
+let catchClicks=Number(localStorage.getItem("catchClicks"))||0;
 
-let streak =
-Number(localStorage.getItem("streak")) || 0;
+let owned=JSON.parse(localStorage.getItem("owned")||"[]");
+let equipped=localStorage.getItem("equipped")||"";
 
+let achievements=
+JSON.parse(localStorage.getItem("achievements")||"[]");
 
-/* BEST SCORES */
+let music=localStorage.getItem("music")!=="false";
+let popups=localStorage.getItem("popups")!=="false";
 
-let bestCatch =
-Number(localStorage.getItem("bestCatch")) || 0;
-
-let bestMemory =
-Number(localStorage.getItem("bestMemory")) || 0;
-
-let reactionBest =
-Number(localStorage.getItem("reactionBest")) || 0;
-
-let colorBest =
-Number(localStorage.getItem("colorBest")) || 0;
-
-let targetBest =
-Number(localStorage.getItem("targetBest")) || 0;
-
-
-/* STATS */
-
-let totalGames =
-Number(localStorage.getItem("totalGames")) || 0;
-
-let totalEarned =
-Number(localStorage.getItem("totalEarned")) || 0;
-
-let catchClicks =
-Number(localStorage.getItem("catchClicks")) || 0;
-
-
-/* SHOP */
-
-let owned =
-JSON.parse(
-localStorage.getItem("owned") || "[]"
-);
-
-let equipped =
-localStorage.getItem("equipped") || "";
-
-
-/* ACHIEVEMENTS */
-
-let achievements =
-JSON.parse(
-localStorage.getItem("achievements") || "[]"
-);
-
-
-/* SETTINGS */
-
-let music =
-localStorage.getItem("music") !== "false";
-
-let popups =
-localStorage.getItem("popups") !== "false";
-
-
-/* =====================================================
-   SAVE
-===================================================== */
 
 function save(){
 
-localStorage.setItem(
-"coins",
-coins
-);
+localStorage.setItem("coins",coins);
+localStorage.setItem("xp",xp);
+localStorage.setItem("level",level);
+localStorage.setItem("streak",streak);
 
-localStorage.setItem(
-"xp",
-xp
-);
+localStorage.setItem("bestCatch",bestCatch);
+localStorage.setItem("bestMemory",bestMemory);
+localStorage.setItem("reactionBest",reactionBest);
+localStorage.setItem("colorBest",colorBest);
+localStorage.setItem("targetBest",targetBest);
+localStorage.setItem("dotsBest",dotsBest);
 
-localStorage.setItem(
-"level",
-level
-);
+localStorage.setItem("totalGames",totalGames);
+localStorage.setItem("totalEarned",totalEarned);
+localStorage.setItem("catchClicks",catchClicks);
 
-localStorage.setItem(
-"streak",
-streak
-);
+localStorage.setItem("owned",JSON.stringify(owned));
+localStorage.setItem("equipped",equipped);
+localStorage.setItem("achievements",JSON.stringify(achievements));
 
-
-/* BEST SCORES */
-
-localStorage.setItem(
-"bestCatch",
-bestCatch
-);
-
-localStorage.setItem(
-"bestMemory",
-bestMemory
-);
-
-localStorage.setItem(
-"reactionBest",
-reactionBest
-);
-
-localStorage.setItem(
-"colorBest",
-colorBest
-);
-
-localStorage.setItem(
-"targetBest",
-targetBest
-);
-
-
-/* OTHER DATA */
-
-localStorage.setItem(
-"totalGames",
-totalGames
-);
-
-localStorage.setItem(
-"totalEarned",
-totalEarned
-);
-
-localStorage.setItem(
-"catchClicks",
-catchClicks
-);
-
-localStorage.setItem(
-"owned",
-JSON.stringify(owned)
-);
-
-localStorage.setItem(
-"equipped",
-equipped
-);
-
-localStorage.setItem(
-"achievements",
-JSON.stringify(achievements)
-);
-
-localStorage.setItem(
-"music",
-music
-);
-
-localStorage.setItem(
-"popups",
-popups
-);
+localStorage.setItem("music",music);
+localStorage.setItem("popups",popups);
 
 updateUI();
 
@@ -1092,150 +850,66 @@ updateUI();
 
 function updateUI(){
 
-document.getElementById(
-"coins"
-).textContent = coins;
+document.getElementById("coins").textContent=coins;
+document.getElementById("level").textContent=level;
+document.getElementById("xp").textContent=xp;
+document.getElementById("streak").textContent=streak;
 
-document.getElementById(
-"level"
-).textContent = level;
+document.getElementById("shopCoins").textContent=coins;
 
-document.getElementById(
-"xp"
-).textContent = xp;
+document.getElementById("settingsStreak").textContent=streak;
 
-document.getElementById(
-"streak"
-).textContent = streak;
+let needed=level*100;
 
-document.getElementById(
-"shopCoins"
-).textContent = coins;
+document.getElementById("xpFill").style.width=
+Math.min(100,xp/needed*100)+"%";
 
-document.getElementById(
-"settingsStreak"
-).textContent = streak;
+document.getElementById("catchBest").textContent=bestCatch;
+document.getElementById("memoryBest").textContent=bestMemory;
 
+document.getElementById("reactionBest").textContent=
+reactionBest||"---";
 
-/* XP BAR */
-
-let needed =
-level * 100;
-
-document.getElementById(
-"xpFill"
-).style.width =
-Math.min(
-100,
-(xp/needed)*100
-)+"%";
-
-
-/* BEST SCORE DISPLAYS */
-
-document.getElementById(
-"catchBest"
-).textContent =
-bestCatch;
-
-document.getElementById(
-"memoryBest"
-).textContent =
-bestMemory;
-
-document.getElementById(
-"reactionBest"
-).textContent =
-reactionBest
-?
-reactionBest
-:
-"---";
-
-document.getElementById(
-"colorBest"
-).textContent =
-colorBest;
-
-document.getElementById(
-"targetBest"
-).textContent =
-targetBest;
+document.getElementById("colorBest").textContent=colorBest;
+document.getElementById("targetBest").textContent=targetBest;
 
 }
 
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
 
 function openPage(id){
 
-document.querySelectorAll(".page")
-.forEach(page=>{
-
-page.style.display="none";
-
+document.querySelectorAll(".page").forEach(p=>{
+p.style.display="none";
 });
 
-document.getElementById(id)
-.style.display="block";
+document.getElementById(id).style.display="block";
 
-
-if(id==="shop")
-loadShop();
-
-if(id==="quests")
-loadQuests();
-
-if(id==="achievements")
-loadAchievements();
-
-if(id==="stats")
-loadStats();
+if(id==="shop")loadShop();
+if(id==="quests")loadQuests();
+if(id==="achievements")loadAchievements();
+if(id==="stats")loadStats();
 
 }
 
 
-/* =====================================================
-   NOTIFICATION
-===================================================== */
-
 function notify(text){
 
-let notification =
-document.getElementById(
-"notification"
-);
+let n=document.getElementById("notification");
 
-notification.textContent =
-text;
-
-notification.classList.add(
-"show"
-);
+n.textContent=text;
+n.classList.add("show");
 
 setTimeout(()=>{
-
-notification.classList.remove(
-"show"
-);
-
+n.classList.remove("show");
 },2500);
 
 }
 
 
-/* =====================================================
-   COINS / XP
-===================================================== */
-
 function addCoins(amount){
 
-coins += amount;
-
-totalEarned += amount;
-
+coins+=amount;
+totalEarned+=amount;
 save();
 
 }
@@ -1243,23 +917,17 @@ save();
 
 function addXP(amount){
 
-xp += amount;
+xp+=amount;
 
+while(xp>=level*100){
 
-while(
-xp >= level * 100
-){
-
-xp -= level * 100;
-
+xp-=level*100;
 level++;
 
-addCoins(25);
+coins+=25;
+totalEarned+=25;
 
-notify(
-"⭐ LEVEL UP!\nLevel "+
-level
-);
+notify("⭐ LEVEL UP!\nLevel "+level);
 
 }
 
@@ -1272,101 +940,37 @@ save();
    COSMETICS
 ===================================================== */
 
-const items = [
+const items=[
 
-{
-id:"hat",
-name:"Top Hat",
-icon:"🎩",
-price:40,
-rarity:"rare"
-},
-
-{
-id:"glasses",
-name:"Cool Glasses",
-icon:"😎",
-price:30,
-rarity:"common"
-},
-
-{
-id:"crown",
-name:"Crown",
-icon:"👑",
-price:60,
-rarity:"epic"
-},
-
-{
-id:"rainbow",
-name:"Rainbow Box",
-icon:"🌈",
-price:100,
-rarity:"legendary"
-},
-
-{
-id:"fire",
-name:"Fire Box",
-icon:"🔥",
-price:150,
-rarity:"mythic"
-},
-
-{
-id:"alien",
-name:"Alien Box",
-icon:"👽",
-price:250,
-rarity:"mythic"
-}
+{id:"hat",name:"Top Hat",icon:"🎩",price:40,rarity:"rare"},
+{id:"glasses",name:"Cool Glasses",icon:"😎",price:30,rarity:"common"},
+{id:"crown",name:"Crown",icon:"👑",price:60,rarity:"epic"},
+{id:"rainbow",name:"Rainbow Box",icon:"🌈",price:100,rarity:"legendary"},
+{id:"fire",name:"Fire Box",icon:"🔥",price:150,rarity:"mythic"},
+{id:"alien",name:"Alien Box",icon:"👽",price:250,rarity:"mythic"}
 
 ];
 
 
 function applyCosmetic(){
 
-let box =
-document.getElementById(
-"box"
-);
+let box=document.getElementById("box");
+let emoji=document.getElementById("boxCosmetic");
 
-let emoji =
-document.getElementById(
-"boxCosmetic"
-);
+if(!box||!emoji)return;
 
-if(!box || !emoji)
-return;
+emoji.textContent="";
+box.style.background="red";
 
-
-emoji.textContent = "";
-
-box.style.background =
-"red";
-
-
-if(equipped==="hat")
-emoji.textContent="🎩";
-
-if(equipped==="glasses")
-emoji.textContent="😎";
-
-if(equipped==="crown")
-emoji.textContent="👑";
-
-if(equipped==="fire")
-emoji.textContent="🔥";
-
-if(equipped==="alien")
-emoji.textContent="👽";
-
+if(equipped==="hat")emoji.textContent="🎩";
+if(equipped==="glasses")emoji.textContent="😎";
+if(equipped==="crown")emoji.textContent="👑";
+if(equipped==="fire")emoji.textContent="🔥";
+if(equipped==="alien")emoji.textContent="👽";
 
 if(equipped==="rainbow"){
 
-let rainbowColors=[
-
+let c=[
 "#ff0000",
 "#ff8800",
 "#ffff00",
@@ -1374,42 +978,28 @@ let rainbowColors=[
 "#00aaff",
 "#6600ff",
 "#ff00ff"
-
 ];
 
-box.style.background =
-rainbowColors[
-Math.floor(
-Date.now()/120
-)
-% rainbowColors.length
-];
+box.style.background=
+c[Math.floor(Date.now()/120)%c.length];
 
 }
 
 }
-
 
 setInterval(()=>{
-
-if(equipped==="rainbow")
-applyCosmetic();
-
+if(equipped==="rainbow")applyCosmetic();
 },120);
 
 
 /* =====================================================
-   CATCH THE BOX
+   CATCH
 ===================================================== */
 
 let catchScore=0;
-
 let catchTime=30;
-
 let combo=0;
-
 let boxSize=50;
-
 let catchTimer;
 
 
@@ -1417,198 +1007,86 @@ function startCatch(){
 
 openPage("catch");
 
-
 catchScore=0;
-
 catchTime=30;
-
 combo=0;
-
 boxSize=50;
 
+document.getElementById("catchScore").textContent=0;
+document.getElementById("catchTime").textContent=30;
+document.getElementById("combo").textContent=0;
 
-document.getElementById(
-"catchScore"
-).textContent=0;
+document.getElementById("catchOver").style.display="none";
 
-document.getElementById(
-"catchTime"
-).textContent=30;
-
-document.getElementById(
-"combo"
-).textContent=0;
-
-
-document.getElementById(
-"catchBest"
-).textContent=bestCatch;
-
-
-document.getElementById(
-"catchOver"
-).style.display="none";
-
-
-let box =
-document.getElementById(
-"box"
-);
+let box=document.getElementById("box");
 
 box.style.display="block";
-
 box.style.width="50px";
-
 box.style.height="50px";
-
-
-applyCosmetic();
 
 moveBox();
 
-
 clearInterval(catchTimer);
 
-
-catchTimer =
-setInterval(()=>{
+catchTimer=setInterval(()=>{
 
 catchTime--;
 
+document.getElementById("catchTime").textContent=catchTime;
 
-document.getElementById(
-"catchTime"
-).textContent=
-catchTime;
-
-
-if(catchTime<=0){
-
-endCatch();
-
-}
+if(catchTime<=0)endCatch();
 
 },1000);
+
+applyCosmetic();
 
 }
 
 
 function moveBox(){
 
-let game =
-document.getElementById(
-"game"
-);
+let game=document.getElementById("game");
+let box=document.getElementById("box");
 
-let box =
-document.getElementById(
-"box"
-);
+let maxX=Math.max(0,game.clientWidth-boxSize);
+let maxY=Math.max(0,game.clientHeight-boxSize);
 
-
-let maxX =
-Math.max(
-0,
-game.clientWidth-boxSize
-);
-
-let maxY =
-Math.max(
-0,
-game.clientHeight-boxSize
-);
-
-
-box.style.left =
-Math.random()*maxX+"px";
-
-box.style.top =
-Math.random()*maxY+"px";
+box.style.left=Math.random()*maxX+"px";
+box.style.top=Math.random()*maxY+"px";
 
 }
 
 
-document.getElementById(
-"box"
-).onclick=()=>{
+document.getElementById("box").onclick=()=>{
 
+if(catchTime<=0)return;
 
 catchScore++;
-
 combo++;
-
 catchClicks++;
 
+boxSize=Math.max(18,50-catchScore*1.5);
 
-/* BOX GETS SMALLER */
+let box=document.getElementById("box");
 
-boxSize =
-Math.max(
-18,
-50-(catchScore*1.5)
-);
+box.style.width=boxSize+"px";
+box.style.height=boxSize+"px";
 
+document.getElementById("catchScore").textContent=catchScore;
+document.getElementById("combo").textContent=combo;
 
-let box =
-document.getElementById(
-"box"
-);
-
-box.style.width =
-boxSize+"px";
-
-box.style.height =
-boxSize+"px";
-
-
-document.getElementById(
-"catchScore"
-).textContent=
-catchScore;
-
-document.getElementById(
-"combo"
-).textContent=
-combo;
-
-
-/* BEST SCORE FIX */
-
-if(
-catchScore > bestCatch
-){
-
-bestCatch =
-catchScore;
-
-document.getElementById(
-"catchBest"
-).textContent=
-bestCatch;
-
-save();
-
+if(catchScore>bestCatch){
+bestCatch=catchScore;
 }
-
 
 addXP(2);
 
-
-if(
-combo % 5 === 0
-){
-
+if(combo%5===0){
 addCoins(combo);
-
-notify(
-"🔥 "+combo+" COMBO!"
-);
-
+notify("🔥 "+combo+" COMBO!");
 }
 
-
 moveBox();
-
 applyCosmetic();
 
 };
@@ -1618,108 +1096,56 @@ function endCatch(){
 
 clearInterval(catchTimer);
 
+document.getElementById("box").style.display="none";
 
-document.getElementById(
-"box"
-).style.display="none";
-
-
-/* FINAL BEST SCORE CHECK */
-
-if(
-catchScore > bestCatch
-){
-
-bestCatch=
-catchScore;
-
-}
-
+if(catchScore>bestCatch)bestCatch=catchScore;
 
 addCoins(catchScore);
 
-
-document.getElementById(
-"finalCatch"
-).textContent=
+document.getElementById("finalCatch").textContent=
 "🏆 Score: "+catchScore;
 
-
-document.getElementById(
-"earnedCatch"
-).textContent=
+document.getElementById("earnedCatch").textContent=
 "💰 +"+catchScore+" coins";
 
-
-document.getElementById(
-"catchOver"
-).style.display="flex";
-
+document.getElementById("catchOver").style.display="flex";
 
 totalGames++;
 
-
 checkAchievements();
-
 save();
 
 }
 
 
 /* =====================================================
-   MEMORY GAME
+   MEMORY
 ===================================================== */
 
 let memorySequence=[];
-
 let memoryPosition=0;
-
 let memoryRound=1;
-
 let memoryTimer;
-
-let memorySeconds=3;
-
 let memoryActive=false;
 
 
 function buildMemory(){
 
-let grid =
-document.getElementById(
-"memoryGrid"
-);
-
+let grid=document.getElementById("memoryGrid");
 grid.innerHTML="";
 
+for(let i=0;i<20;i++){
 
-for(
-let i=0;
-i<20;
-i++
-){
-
-let square =
-document.createElement(
-"div"
-);
+let square=document.createElement("div");
 
 square.className="memory";
-
 square.dataset.index=i;
 
 square.onclick=()=>{
-
-memoryClick(
-i,
-square
-);
-
+memoryClick(i,square);
 };
 
-grid.appendChild(
-square
-);
+grid.appendChild(square);
 
 }
 
@@ -1730,24 +1156,13 @@ function startMemory(){
 
 openPage("memory");
 
-
 memoryRound=1;
-
 memoryPosition=0;
 
-
-document.getElementById(
-"memoryRound"
-).textContent=1;
-
-
-document.getElementById(
-"memoryBest"
-).textContent=bestMemory;
-
+document.getElementById("memoryRound").textContent=1;
+document.getElementById("memoryBest").textContent=bestMemory;
 
 buildMemory();
-
 nextMemory();
 
 }
@@ -1756,92 +1171,43 @@ nextMemory();
 function nextMemory(){
 
 clearInterval(memoryTimer);
-
 memoryActive=false;
-
-
 memorySequence=[];
 
+while(memorySequence.length<3){
 
-while(
-memorySequence.length<3
-){
+let n=Math.floor(Math.random()*20);
 
-let number =
-Math.floor(
-Math.random()*20
-);
-
-if(
-!memorySequence.includes(
-number
-)
-){
-
-memorySequence.push(
-number
-);
+if(!memorySequence.includes(n))
+memorySequence.push(n);
 
 }
-
-}
-
 
 memoryPosition=0;
 
+let squares=document.querySelectorAll(".memory");
 
-let squares =
-document.querySelectorAll(
-".memory"
-);
-
+document.getElementById("memoryStatus").textContent="WATCH! 👀";
 
 let i=0;
 
+let flashTimer=setInterval(()=>{
 
-document.getElementById(
-"memoryStatus"
-).textContent=
-"WATCH! 👀";
+if(i>=memorySequence.length){
 
-
-let flashTimer =
-setInterval(()=>{
-
-if(
-i>=memorySequence.length
-){
-
-clearInterval(
-flashTimer
-);
-
+clearInterval(flashTimer);
 startMemoryTimer();
-
 return;
 
 }
 
+let square=squares[memorySequence[i]];
 
-let square =
-squares[
-memorySequence[i]
-];
-
-
-square.classList.add(
-"flash"
-);
-
+square.classList.add("flash");
 
 setTimeout(()=>{
-
-square.classList.remove(
-"flash"
-);
-
+square.classList.remove("flash");
 },500);
-
 
 i++;
 
@@ -1854,153 +1220,65 @@ function startMemoryTimer(){
 
 memoryActive=true;
 
-memorySeconds=3;
+let seconds=3;
 
+document.getElementById("memoryTime").textContent=3;
+document.getElementById("memoryStatus").textContent="YOUR TURN! 🧠";
 
-document.getElementById(
-"memoryTime"
-).textContent=3;
+memoryTimer=setInterval(()=>{
 
+seconds--;
 
-document.getElementById(
-"memoryStatus"
-).textContent=
-"YOUR TURN! 🧠";
+document.getElementById("memoryTime").textContent=seconds;
 
-
-memoryTimer =
-setInterval(()=>{
-
-memorySeconds--;
-
-
-document.getElementById(
-"memoryTime"
-).textContent=
-memorySeconds;
-
-
-if(
-memorySeconds<=0
-){
-
-endMemory();
-
-}
+if(seconds<=0)endMemory();
 
 },1000);
 
 }
 
 
-function memoryClick(
-index,
-square
-){
+function memoryClick(index,square){
 
-if(!memoryActive)
-return;
+if(!memoryActive)return;
 
+if(index===memorySequence[memoryPosition]){
 
-if(
-index ===
-memorySequence[
-memoryPosition
-]
-){
-
-square.classList.add(
-"correct"
-);
-
+square.classList.add("correct");
 
 setTimeout(()=>{
-
-square.classList.remove(
-"correct"
-);
-
+square.classList.remove("correct");
 },200);
-
 
 memoryPosition++;
 
+if(memoryPosition===3){
 
-if(
-memoryPosition===3
-){
-
-clearInterval(
-memoryTimer
-);
-
+clearInterval(memoryTimer);
 memoryActive=false;
 
-
-/* ROUND COMPLETED */
-
-let completedRound =
-memoryRound;
-
-
-/* BEST SCORE FIX */
-
-if(
-completedRound > bestMemory
-){
-
-bestMemory =
-completedRound;
-
-document.getElementById(
-"memoryBest"
-).textContent=
-bestMemory;
-
-save();
-
+if(memoryRound>bestMemory){
+bestMemory=memoryRound;
 }
 
-
 addCoins(3);
-
 addXP(10);
-
-
-/* NEXT ROUND */
 
 memoryRound++;
 
+document.getElementById("memoryRound").textContent=memoryRound;
 
-document.getElementById(
-"memoryRound"
-).textContent=
-memoryRound;
-
-
-setTimeout(
-nextMemory,
-500
-);
+setTimeout(nextMemory,500);
 
 }
 
-}
-else{
+}else{
 
-square.classList.add(
-"wrong"
-);
-
+square.classList.add("wrong");
 
 setTimeout(()=>{
-
-square.classList.remove(
-"wrong"
-);
-
+square.classList.remove("wrong");
 },300);
-
 
 endMemory();
 
@@ -2011,195 +1289,104 @@ endMemory();
 
 function endMemory(){
 
-clearInterval(
-memoryTimer
-);
-
+clearInterval(memoryTimer);
 memoryActive=false;
 
 totalGames++;
 
 checkAchievements();
-
 save();
 
 }
 
 
 /* =====================================================
-   REACTION TEST
+   REACTION
 ===================================================== */
 
 let reactionState="idle";
-
 let reactionStart;
-
 let reactionTimeout;
 
 
 function reactionClick(){
 
-let box =
-document.getElementById(
-"reactionBox"
-);
+let box=document.getElementById("reactionBox");
 
-
-if(
-reactionState==="idle"
-){
+if(reactionState==="idle"){
 
 reactionState="waiting";
 
+box.className="reaction wait";
+box.textContent="WAIT...";
 
-box.className=
-"reaction wait";
-
-box.textContent=
-"WAIT...";
-
-
-reactionTimeout =
-setTimeout(()=>{
+reactionTimeout=setTimeout(()=>{
 
 reactionState="go";
+reactionStart=performance.now();
 
-reactionStart=
-performance.now();
-
-
-box.className=
-"reaction go";
-
-box.textContent=
-"🟢 CLICK!";
+box.className="reaction go";
+box.textContent="🟢 CLICK!";
 
 },1000+Math.random()*3000);
 
+return;
+
+}
+
+if(reactionState==="waiting"){
+
+clearTimeout(reactionTimeout);
+
+reactionState="idle";
+
+box.className="reaction";
+box.textContent="💀 TOO EARLY!";
 
 return;
 
 }
 
-
-if(
-reactionState==="waiting"
-){
-
-clearTimeout(
-reactionTimeout
-);
+let time=Math.round(performance.now()-reactionStart);
 
 reactionState="idle";
 
-box.className=
-"reaction";
+box.className="reaction";
+box.textContent=time+" ms ⚡";
 
-box.textContent=
-"💀 TOO EARLY!";
-
-return;
-
-}
-
-
-let time =
-Math.round(
-performance.now()-
-reactionStart
-);
-
-
-reactionState="idle";
-
-
-box.className=
-"reaction";
-
-box.textContent=
-time+" ms ⚡";
-
-
-/* BEST SCORE FIX */
-
-if(
-reactionBest===0 ||
-time<reactionBest
-){
+if(reactionBest===0||time<reactionBest){
 
 reactionBest=time;
 
-notify(
-"🥇 NEW REACTION RECORD!\n"+
-time+" ms"
-);
-
-save();
+notify("🥇 NEW REACTION RECORD!\n"+time+" ms");
 
 }
 
-
-addCoins(
-Math.max(
-5,
-Math.floor(
-1000/time*10
-)
-)
-);
-
+addCoins(Math.max(5,Math.floor(1000/time*10)));
 addXP(15);
 
 totalGames++;
 
 checkAchievements();
-
 save();
 
 }
 
 
 /* =====================================================
-   COLOR MATCH
+   COLOR
 ===================================================== */
 
 const colors=[
-
-{
-name:"RED",
-code:"#ff3344"
-},
-
-{
-name:"BLUE",
-code:"#3399ff"
-},
-
-{
-name:"GREEN",
-code:"#20d070"
-},
-
-{
-name:"YELLOW",
-code:"#ffd43b"
-},
-
-{
-name:"PURPLE",
-code:"#a855f7"
-},
-
-{
-name:"ORANGE",
-code:"#ff8800"
-}
-
+{name:"RED",code:"#ff3344"},
+{name:"BLUE",code:"#3399ff"},
+{name:"GREEN",code:"#20d070"},
+{name:"YELLOW",code:"#ffd43b"},
+{name:"PURPLE",code:"#a855f7"},
+{name:"ORANGE",code:"#ff8800"}
 ];
 
-
 let colorCorrect="";
-
 let colorScore=0;
 
 
@@ -2207,20 +1394,9 @@ function startColor(){
 
 openPage("color");
 
-
 colorScore=0;
 
-
-document.getElementById(
-"colorScore"
-).textContent=0;
-
-
-document.getElementById(
-"colorBest"
-).textContent=
-colorBest;
-
+document.getElementById("colorScore").textContent=0;
 
 nextColor();
 
@@ -2229,104 +1405,42 @@ nextColor();
 
 function nextColor(){
 
-let answer =
-colors[
-Math.floor(
-Math.random()*colors.length
-)
-];
+let answer=colors[Math.floor(Math.random()*colors.length)];
+let word=colors[Math.floor(Math.random()*colors.length)];
 
+colorCorrect=answer.name;
 
-let word =
-colors[
-Math.floor(
-Math.random()*colors.length
-)
-];
+let wordElement=document.getElementById("colorWord");
 
+wordElement.textContent=word.name;
+wordElement.style.color=answer.code;
 
-colorCorrect =
-answer.name;
-
-
-let wordElement =
-document.getElementById(
-"colorWord"
-);
-
-
-wordElement.textContent=
-word.name;
-
-
-wordElement.style.color=
-answer.code;
-
-
-let buttons =
-document.getElementById(
-"colorButtons"
-);
-
+let buttons=document.getElementById("colorButtons");
 
 buttons.innerHTML="";
 
+colors.forEach(color=>{
 
-colors.forEach(
-color=>{
+let button=document.createElement("button");
 
-let button =
-document.createElement(
-"button"
-);
-
-
-button.textContent=
-color.name;
-
+button.textContent=color.name;
 
 button.onclick=()=>{
 
-
-if(
-color.name===
-colorCorrect
-){
+if(color.name===colorCorrect){
 
 colorScore++;
 
+document.getElementById("colorScore").textContent=colorScore;
 
-document.getElementById(
-"colorScore"
-).textContent=
-colorScore;
-
-
-/* BEST SCORE FIX */
-
-if(
-colorScore > colorBest
-){
-
-colorBest=
-colorScore;
-
-document.getElementById(
-"colorBest"
-).textContent=
-colorBest;
-
-save();
-
-}
-
+if(colorScore>colorBest)
+colorBest=colorScore;
 
 addXP(5);
 
 nextColor();
 
-}
-else{
+}else{
 
 endColor();
 
@@ -2334,10 +1448,7 @@ endColor();
 
 };
 
-
-buttons.appendChild(
-button
-);
+buttons.appendChild(button);
 
 });
 
@@ -2346,28 +1457,16 @@ button
 
 function endColor(){
 
-if(
-colorScore>colorBest
-){
-
+if(colorScore>colorBest)
 colorBest=colorScore;
 
-}
-
-
-addCoins(
-colorScore*2
-);
+addCoins(colorScore*2);
 
 totalGames++;
 
-notify(
-"🎨 GAME OVER!\nScore: "+
-colorScore
-);
+notify("🎨 GAME OVER!\nScore: "+colorScore);
 
 checkAchievements();
-
 save();
 
 }
@@ -2378,11 +1477,8 @@ save();
 ===================================================== */
 
 let targetScore=0;
-
 let targetTime=30;
-
 let targetTimer;
-
 let targetSpawner;
 
 
@@ -2390,74 +1486,30 @@ function startTargets(){
 
 openPage("target");
 
-
 targetScore=0;
-
 targetTime=30;
 
+document.getElementById("targetScore").textContent=0;
+document.getElementById("targetTime").textContent=30;
 
-document.getElementById(
-"targetScore"
-).textContent=0;
-
-
-document.getElementById(
-"targetTime"
-).textContent=30;
-
-
-document.getElementById(
-"targetBest"
-).textContent=
-targetBest;
-
-
-let area =
-document.getElementById(
-"targetArea"
-);
+let area=document.getElementById("targetArea");
 
 area.innerHTML="";
 
-
-clearInterval(
-targetTimer
-);
-
-clearInterval(
-targetSpawner
-);
-
+clearInterval(targetTimer);
+clearInterval(targetSpawner);
 
 spawnTarget();
 
+targetSpawner=setInterval(spawnTarget,700);
 
-targetSpawner =
-setInterval(
-spawnTarget,
-700
-);
-
-
-targetTimer =
-setInterval(()=>{
+targetTimer=setInterval(()=>{
 
 targetTime--;
 
+document.getElementById("targetTime").textContent=targetTime;
 
-document.getElementById(
-"targetTime"
-).textContent=
-targetTime;
-
-
-if(
-targetTime<=0
-){
-
-endTargets();
-
-}
+if(targetTime<=0)endTargets();
 
 },1000);
 
@@ -2466,62 +1518,26 @@ endTargets();
 
 function spawnTarget(){
 
-let area =
-document.getElementById(
-"targetArea"
-);
+let area=document.getElementById("targetArea");
 
-
-let target =
-document.createElement(
-"div"
-);
-
+let target=document.createElement("div");
 
 target.className="target";
 
-
 target.style.left=
-Math.random()*
-(area.clientWidth-50)
-+"px";
-
+Math.random()*Math.max(1,area.clientWidth-50)+"px";
 
 target.style.top=
-Math.random()*
-(area.clientHeight-50)
-+"px";
-
+Math.random()*Math.max(1,area.clientHeight-50)+"px";
 
 target.onclick=()=>{
 
 targetScore++;
 
+document.getElementById("targetScore").textContent=targetScore;
 
-document.getElementById(
-"targetScore"
-).textContent=
-targetScore;
-
-
-/* BEST SCORE FIX */
-
-if(
-targetScore>targetBest
-){
-
-targetBest=
-targetScore;
-
-document.getElementById(
-"targetBest"
-).textContent=
-targetBest;
-
-save();
-
-}
-
+if(targetScore>targetBest)
+targetBest=targetScore;
 
 addXP(2);
 
@@ -2529,16 +1545,10 @@ target.remove();
 
 };
 
-
-area.appendChild(
-target
-);
-
+area.appendChild(target);
 
 setTimeout(()=>{
-
 target.remove();
-
 },1200);
 
 }
@@ -2546,43 +1556,550 @@ target.remove();
 
 function endTargets(){
 
-clearInterval(
-targetTimer
-);
+clearInterval(targetTimer);
+clearInterval(targetSpawner);
 
-clearInterval(
-targetSpawner
-);
+if(targetScore>targetBest)
+targetBest=targetScore;
 
+addCoins(targetScore*2);
 
-/* FINAL BEST CHECK */
+totalGames++;
 
-if(
-targetScore>targetBest
-){
+notify("🎯 TIME!\nScore: "+targetScore);
 
-targetBest=
-targetScore;
+checkAchievements();
+save();
 
 }
 
 
-addCoins(
-targetScore*2
+/* =====================================================
+   DOTS & BOXES
+===================================================== */
+
+let dotsSize=6;
+let dotsMode="";
+let dotsTurn=1;
+let dotsP1Score=0;
+let dotsP2Score=0;
+let dotsGameOver=false;
+let dotsEdges=[];
+let dotsSquares=[];
+
+
+function setDotsSize(size){
+
+dotsSize=size;
+
+if(dotsMode)
+startDots(dotsMode);
+
+}
+
+
+function startDots(mode){
+
+openPage("dots");
+
+dotsMode=mode;
+dotsTurn=1;
+dotsP1Score=0;
+dotsP2Score=0;
+dotsGameOver=false;
+dotsEdges=[];
+dotsSquares=[];
+
+document.getElementById("dotsP1Score").textContent=0;
+document.getElementById("dotsP2Score").textContent=0;
+
+document.getElementById("dotsP2Name").textContent=
+mode==="bot"?"BOT":"PLAYER 2";
+
+document.getElementById("dotsTurn").textContent=
+"🔴 PLAYER 1 TURN";
+
+buildDotsBoard();
+
+}
+
+
+function buildDotsBoard(){
+
+let board=document.getElementById("dotsBoard");
+
+board.innerHTML="";
+
+board.style.gridTemplateColumns=
+`repeat(${dotsSize},42px)`;
+
+for(let r=0;r<dotsSize;r++){
+
+let row=document.createElement("div");
+
+row.className="dotRow";
+
+for(let c=0;c<dotsSize;c++){
+
+let cell=document.createElement("div");
+
+cell.className="dotCell";
+
+let dot=document.createElement("div");
+
+dot.className="dot";
+
+cell.appendChild(dot);
+
+
+/* HORIZONTAL EDGE */
+
+if(c<dotsSize-1){
+
+let edge=document.createElement("div");
+
+edge.className="edgeH";
+
+edge.dataset.r=r;
+edge.dataset.c=c;
+edge.dataset.dir="h";
+
+edge.onclick=()=>dotsMove(edge);
+
+dotsEdges.push(edge);
+
+cell.appendChild(edge);
+
+}
+
+
+/* VERTICAL EDGE */
+
+if(r<dotsSize-1){
+
+let edge=document.createElement("div");
+
+edge.className="edgeV";
+
+edge.dataset.r=r;
+edge.dataset.c=c;
+edge.dataset.dir="v";
+
+edge.onclick=()=>dotsMove(edge);
+
+cell.appendChild(edge);
+
+}
+
+row.appendChild(cell);
+
+}
+
+board.appendChild(row);
+
+}
+
+
+/* Put square labels */
+
+for(let r=0;r<dotsSize-1;r++){
+
+for(let c=0;c<dotsSize-1;c++){
+
+let sq=document.createElement("div");
+
+sq.className="square";
+
+sq.dataset.r=r;
+sq.dataset.c=c;
+
+sq.style.width="42px";
+sq.style.height="42px";
+
+sq.style.left=
+20+c*42+"px";
+
+sq.style.top=
+20+r*42+"px";
+
+board.appendChild(sq);
+
+dotsSquares.push(sq);
+
+}
+
+}
+
+}
+
+
+/* Check if edge is already taken */
+
+function edgeTaken(r,c,d){
+
+return dotsEdges.some(e=>
+Number(e.dataset.r)===r &&
+Number(e.dataset.c)===c &&
+e.dataset.dir===d &&
+(
+e.classList.contains("p1") ||
+e.classList.contains("p2")
+)
 );
 
+}
+
+
+function hasEdge(r,c,d){
+
+return dotsEdges.some(e=>
+Number(e.dataset.r)===r &&
+Number(e.dataset.c)===c &&
+e.dataset.dir===d &&
+(
+e.classList.contains("p1") ||
+e.classList.contains("p2")
+)
+);
+
+}
+
+
+/* Find squares touching an edge */
+
+function affectedSquares(edge){
+
+let r=Number(edge.dataset.r);
+let c=Number(edge.dataset.c);
+let d=edge.dataset.dir;
+
+let result=[];
+
+if(d==="h"){
+
+if(r<dotsSize-1)
+result.push([r,c]);
+
+if(r>0)
+result.push([r-1,c]);
+
+}else{
+
+if(c<dotsSize-1)
+result.push([r,c]);
+
+if(c>0)
+result.push([r,c-1]);
+
+}
+
+return result;
+
+}
+
+
+/* Count sides of square */
+
+function sidesAround(r,c){
+
+let sides=0;
+
+if(hasEdge(r,c,"h"))sides++;
+if(hasEdge(r+1,c,"h"))sides++;
+if(hasEdge(r,c,"v"))sides++;
+if(hasEdge(r,c+1,"v"))sides++;
+
+return sides;
+
+}
+
+
+/* Actually play a line */
+
+function dotsMove(e){
+
+if(
+dotsGameOver ||
+!e ||
+e.classList.contains("p1") ||
+e.classList.contains("p2")
+)return;
+
+
+/* Don't allow player to click during bot turn */
+
+if(
+dotsMode==="bot" &&
+dotsTurn===2
+)return;
+
+
+let currentPlayer=dotsTurn;
+
+e.classList.add(
+currentPlayer===1?"p1":"p2"
+);
+
+let completed=0;
+
+let affected=affectedSquares(e);
+
+
+affected.forEach(([r,c])=>{
+
+if(sidesAround(r,c)===4){
+
+let sq=dotsSquares.find(s=>
+Number(s.dataset.r)===r &&
+Number(s.dataset.c)===c
+);
+
+if(sq && !sq.dataset.done){
+
+sq.dataset.done="true";
+sq.classList.add(
+currentPlayer===1?"p1":"p2"
+);
+
+sq.textContent=
+currentPlayer===1?"1":"2";
+
+completed++;
+
+}
+
+}
+
+});
+
+
+if(currentPlayer===1)
+dotsP1Score+=completed;
+else
+dotsP2Score+=completed;
+
+
+document.getElementById("dotsP1Score").textContent=dotsP1Score;
+document.getElementById("dotsP2Score").textContent=dotsP2Score;
+
+
+/* Square = extra turn */
+
+if(completed===0){
+
+dotsTurn=dotsTurn===1?2:1;
+
+}
+
+
+if(dotsP1Score+dotsP2Score >=
+(dotsSize-1)*(dotsSize-1)){
+
+endDots();
+return;
+
+}
+
+
+updateDotsTurn();
+
+
+/* Bot */
+
+if(
+dotsMode==="bot" &&
+dotsTurn===2
+){
+
+setTimeout(botMove,400);
+
+}
+
+}
+
+
+/* =====================================================
+   WORKING BOT
+===================================================== */
+
+function botMove(){
+
+if(dotsGameOver || dotsTurn!==2)return;
+
+let freeEdges=dotsEdges.filter(e=>
+!e.classList.contains("p1") &&
+!e.classList.contains("p2")
+);
+
+if(freeEdges.length===0)return;
+
+
+/* Does this move complete a square? */
+
+function createsSquare(edge){
+
+let possible=affectedSquares(edge);
+
+for(let [r,c] of possible){
+
+if(sidesAround(r,c)===3)
+return true;
+
+}
+
+return false;
+
+}
+
+
+/* Find square immediately */
+
+let winningMove=
+freeEdges.find(e=>createsSquare(e));
+
+
+if(winningMove){
+
+setTimeout(()=>{
+
+if(!dotsGameOver && dotsTurn===2)
+dotsMove(winningMove);
+
+},350);
+
+return;
+
+}
+
+
+/* Dangerous move:
+   creates a square with 3 sides */
+
+function isDangerous(edge){
+
+let possible=affectedSquares(edge);
+
+for(let [r,c] of possible){
+
+if(sidesAround(r,c)===2)
+return true;
+
+}
+
+return false;
+
+}
+
+
+/* Try safe moves */
+
+let safeMoves=
+freeEdges.filter(e=>!isDangerous(e));
+
+
+let chosen;
+
+if(safeMoves.length>0){
+
+chosen=
+safeMoves[
+Math.floor(Math.random()*safeMoves.length)
+];
+
+}else{
+
+chosen=
+freeEdges[
+Math.floor(Math.random()*freeEdges.length)
+];
+
+}
+
+
+setTimeout(()=>{
+
+if(!dotsGameOver && dotsTurn===2)
+dotsMove(chosen);
+
+},350);
+
+}
+
+
+/* Turn text */
+
+function updateDotsTurn(){
+
+if(dotsTurn===1){
+
+document.getElementById("dotsTurn").textContent=
+"🔴 PLAYER 1 TURN";
+
+}else{
+
+document.getElementById("dotsTurn").textContent=
+dotsMode==="bot"
+?
+"🔵 BOT THINKING..."
+:
+"🔵 PLAYER 2 TURN";
+
+}
+
+}
+
+
+/* End */
+
+function endDots(){
+
+dotsGameOver=true;
+
+let message="";
+
+if(dotsP1Score>dotsP2Score){
+
+message="🏆 PLAYER 1 WINS!";
+
+}else if(dotsP2Score>dotsP1Score){
+
+message=
+dotsMode==="bot"
+?
+"🤖 BOT WINS!"
+:
+"🏆 PLAYER 2 WINS!";
+
+}else{
+
+message="🤝 DRAW!";
+
+}
+
+
+let totalScore=
+Math.max(dotsP1Score,dotsP2Score);
+
+if(totalScore>dotsBest)
+dotsBest=totalScore;
+
+let reward=
+Math.max(5,totalScore*3);
+
+addCoins(reward);
+addXP(totalScore*5);
 
 totalGames++;
 
-
 notify(
-"🎯 TIME!\nScore: "+
-targetScore
+message+
+"\n💰 +"+reward+" coins"
 );
 
+document.getElementById("dotsTurn").textContent=
+message;
 
 checkAchievements();
-
 save();
 
 }
@@ -2594,41 +2111,22 @@ save();
 
 function loadShop(){
 
-let container =
-document.getElementById(
-"shopItems"
-);
+let container=document.getElementById("shopItems");
 
 container.innerHTML="";
 
+items.forEach(item=>{
 
-items.forEach(
-item=>{
+let has=owned.includes(item.id);
+let equippedNow=equipped===item.id;
 
-let has =
-owned.includes(
-item.id
-);
-
-
-let equippedNow =
-equipped===item.id;
-
-
-let div =
-document.createElement(
-"div"
-);
-
+let div=document.createElement("div");
 
 div.className="shopItem";
 
-
 div.innerHTML=`
 
-<div class="shopIcon">
-${item.icon}
-</div>
+<div class="shopIcon">${item.icon}</div>
 
 <h2>${item.name}</h2>
 
@@ -2636,21 +2134,13 @@ ${item.icon}
 ${item.rarity.toUpperCase()}
 </p>
 
-<p>
-💰 ${item.price}
-</p>
+<p>💰 ${item.price}</p>
 
 <button>
 ${
 has
 ?
-(
-equippedNow
-?
-"✅ EQUIPPED"
-:
-"EQUIP"
-)
+(equippedNow?"✅ EQUIPPED":"EQUIP")
 :
 "BUY"
 }
@@ -2658,78 +2148,43 @@ equippedNow
 
 `;
 
-
-div.querySelector(
-"button"
-).onclick=()=>{
-
+div.querySelector("button").onclick=()=>{
 
 if(has){
 
-equipped =
-equippedNow
-?
-""
-:
-item.id;
-
+equipped=equippedNow?"":item.id;
 
 applyCosmetic();
-
 save();
-
 loadShop();
 
 return;
 
 }
 
+if(coins<item.price){
 
-if(
-coins<item.price
-){
-
-notify(
-"💰 NOT ENOUGH COINS!"
-);
-
+notify("💰 NOT ENOUGH COINS!");
 return;
 
 }
 
+coins-=item.price;
 
-coins -=
-item.price;
+owned.push(item.id);
+equipped=item.id;
 
-
-owned.push(
-item.id
-);
-
-equipped =
-item.id;
-
-
-notify(
-"🛒 BOUGHT "+
-item.name+"!"
-);
-
+notify("🛒 BOUGHT "+item.name+"!");
 
 applyCosmetic();
 
 save();
-
 loadShop();
-
 checkAchievements();
 
 };
 
-
-container.appendChild(
-div
-);
+container.appendChild(div);
 
 });
 
@@ -2742,107 +2197,59 @@ div
 
 const achievementData=[
 
-[
-"first",
-"🎯 First Catch",
-"Catch your first box",
-()=>catchClicks>=1
-],
+["first","🎯 First Catch","Catch your first box",
+()=>catchClicks>=1],
 
-[
-"combo",
-"🔥 Combo Master",
-"Reach a 20 box score",
-()=>bestCatch>=20
-],
+["combo","🔥 Combo Master","Reach 20 catches",
+()=>bestCatch>=20],
 
-[
-"brain",
-"🧠 Big Brain",
-"Reach Memory Round 10",
-()=>bestMemory>=10
-],
+["brain","🧠 Big Brain","Reach Memory Round 10",
+()=>bestMemory>=10],
 
-[
-"rich",
-"💰 Money Maker",
-"Earn 500 coins",
-()=>totalEarned>=500
-],
+["rich","💰 Money Maker","Earn 500 coins",
+()=>totalEarned>=500],
 
-[
-"shop",
-"🛒 Shopaholic",
-"Own 3 cosmetics",
-()=>owned.length>=3
-],
+["shop","🛒 Shopaholic","Own 3 cosmetics",
+()=>owned.length>=3],
 
-[
-"rainbow",
-"🌈 Rainbow Collector",
-"Buy the Rainbow Box",
-()=>owned.includes("rainbow")
-],
+["rainbow","🌈 Rainbow Collector","Buy Rainbow Box",
+()=>owned.includes("rainbow")],
 
-[
-"drip",
-"👑 Drip Lord",
-"Own every cosmetic",
-()=>owned.length>=items.length
-],
+["drip","👑 Drip Lord","Own every cosmetic",
+()=>owned.length>=items.length],
 
-[
-"speed",
-"⚡ Speed Demon",
-"Get under 250ms",
-()=>reactionBest>0&&reactionBest<250
-],
+["speed","⚡ Speed Demon","Get under 250ms",
+()=>reactionBest>0&&reactionBest<250],
 
-[
-"gamer",
-"🎮 Gamer",
-"Play 25 games",
-()=>totalGames>=25
-],
+["gamer","🎮 Gamer","Play 25 games",
+()=>totalGames>=25],
 
-[
-"level10",
-"⭐ Level 10",
-"Reach Level 10",
-()=>level>=10
-]
+["level10","⭐ Level 10","Reach Level 10",
+()=>level>=10],
+
+["dots","🔴🔵 Square Master","Score 10 squares",
+()=>dotsBest>=10]
 
 ];
 
 
 function checkAchievements(){
 
-achievementData.forEach(
-achievement=>{
+achievementData.forEach(a=>{
 
-let id =
-achievement[0];
+let id=a[0];
 
-let condition =
-achievement[3];
-
-
-if(
-!achievements.includes(id)
-&&
-condition()
-){
+if(!achievements.includes(id)&&a[3]()){
 
 achievements.push(id);
 
-addCoins(50);
-
+coins+=50;
+totalEarned+=50;
 
 if(popups){
 
 notify(
-"🏆 ACHIEVEMENT!\n"+
-achievement[1]
+"🏆 ACHIEVEMENT!\n"+a[1]
 );
 
 }
@@ -2858,56 +2265,29 @@ save();
 
 function loadAchievements(){
 
-let list =
-document.getElementById(
-"achievementList"
-);
+let list=document.getElementById("achievementList");
 
 list.innerHTML="";
 
+achievementData.forEach(a=>{
 
-achievementData.forEach(
-achievement=>{
+let unlocked=achievements.includes(a[0]);
 
-let unlocked =
-achievements.includes(
-achievement[0]
-);
-
-
-let div =
-document.createElement(
-"div"
-);
-
+let div=document.createElement("div");
 
 div.className=
 "achievement "+
-(
-unlocked
-?
-""
-:
-"locked"
-);
-
+(unlocked?"":"locked");
 
 div.innerHTML=`
 
-<h2>
-${achievement[1]}
-</h2>
-
-<p>
-${achievement[2]}
-</p>
+<h2>${a[1]}</h2>
+<p>${a[2]}</p>
+<p>${unlocked?"✅ UNLOCKED":"🔒 LOCKED"}</p>
 
 `;
 
-
-list.appendChild(
-div
-);
+list.appendChild(div);
 
 });
 
@@ -2920,67 +2300,38 @@ div
 
 function loadQuests(){
 
-document.getElementById(
-"questList"
-).innerHTML=`
+document.getElementById("questList").innerHTML=`
 
 <div class="quest">
-
-<h2>
-🎯 Catcher
-</h2>
-
-<p>
-Get 25 points in Catch The Box.
-</p>
-
-<button
-onclick="claimQuest('catch')">
-
+<h2>🎯 Catcher</h2>
+<p>Get 25 points in Catch The Box.</p>
+<button onclick="claimQuest('catch')">
 🎁 CLAIM 30 COINS
-
 </button>
-
 </div>
 
-
 <div class="quest">
-
-<h2>
-🧠 Brain Training
-</h2>
-
-<p>
-Reach Memory Round 7.
-</p>
-
-<button
-onclick="claimQuest('memory')">
-
+<h2>🧠 Brain Training</h2>
+<p>Reach Memory Round 7.</p>
+<button onclick="claimQuest('memory')">
 🎁 CLAIM 30 COINS
-
 </button>
-
 </div>
 
+<div class="quest">
+<h2>🔴 Square Builder</h2>
+<p>Score 5 squares in Dots & Boxes.</p>
+<button onclick="claimQuest('dots')">
+🎁 CLAIM 30 COINS
+</button>
+</div>
 
 <div class="quest">
-
-<h2>
-🎮 Playtime
-</h2>
-
-<p>
-Play 3 games.
-</p>
-
-<button
-onclick="claimQuest('games')">
-
+<h2>🎮 Playtime</h2>
+<p>Play 3 games.</p>
+<button onclick="claimQuest('games')">
 🎁 CLAIM 30 COINS
-
 </button>
-
 </div>
 
 `;
@@ -2992,39 +2343,21 @@ function claimQuest(type){
 
 let complete=false;
 
-
-if(type==="catch")
-complete=
-bestCatch>=25;
-
-
-if(type==="memory")
-complete=
-bestMemory>=7;
-
-
-if(type==="games")
-complete=
-totalGames>=3;
-
+if(type==="catch")complete=bestCatch>=25;
+if(type==="memory")complete=bestMemory>=7;
+if(type==="dots")complete=dotsBest>=5;
+if(type==="games")complete=totalGames>=3;
 
 if(!complete){
 
-notify(
-"❌ QUEST NOT COMPLETE!"
-);
-
+notify("❌ QUEST NOT COMPLETE!");
 return;
 
 }
 
-
 addCoins(30);
 
-
-notify(
-"🎁 QUEST COMPLETE!\n+30 COINS!"
-);
+notify("🎁 QUEST COMPLETE!\n+30 COINS!");
 
 }
 
@@ -3035,9 +2368,7 @@ notify(
 
 function loadStats(){
 
-document.getElementById(
-"statsList"
-).innerHTML=`
+document.getElementById("statsList").innerHTML=`
 
 <div class="statBox">
 🎯 Catch Best:
@@ -3051,9 +2382,7 @@ document.getElementById(
 
 <div class="statBox">
 ⚡ Reaction Best:
-<strong>
-${reactionBest || "---"} ms
-</strong>
+<strong>${reactionBest||"---"} ms</strong>
 </div>
 
 <div class="statBox">
@@ -3064,6 +2393,11 @@ ${reactionBest || "---"} ms
 <div class="statBox">
 🎯 Target Best:
 <strong>${targetBest}</strong>
+</div>
+
+<div class="statBox">
+🔴🔵 Dots Best:
+<strong>${dotsBest}</strong>
 </div>
 
 <div class="statBox">
@@ -3082,10 +2416,8 @@ ${reactionBest || "---"} ms
 </div>
 
 <div class="statBox">
-🛒 Cosmetics Owned:
-<strong>
-${owned.length}/${items.length}
-</strong>
+🛒 Cosmetics:
+<strong>${owned.length}/${items.length}</strong>
 </div>
 
 `;
@@ -3101,16 +2433,8 @@ function toggleMusic(){
 
 music=!music;
 
-
-document.getElementById(
-"musicButton"
-).textContent=
-music
-?
-"ON"
-:
-"OFF";
-
+document.getElementById("musicButton").textContent=
+music?"ON":"OFF";
 
 save();
 
@@ -3121,16 +2445,8 @@ function togglePopups(){
 
 popups=!popups;
 
-
-document.getElementById(
-"popupButton"
-).textContent=
-popups
-?
-"ON"
-:
-"OFF";
-
+document.getElementById("popupButton").textContent=
+popups?"ON":"OFF";
 
 save();
 
@@ -3139,28 +2455,17 @@ save();
 
 function changeTheme(){
 
-let theme =
-document.getElementById(
-"theme"
-).value;
-
-
 document.body.className=
-theme;
+document.getElementById("theme").value;
 
 }
 
 
 function resetGame(){
 
-if(
-confirm(
-"⚠️ Delete EVERYTHING?"
-)
-){
+if(confirm("⚠️ Delete EVERYTHING?")){
 
 localStorage.clear();
-
 location.reload();
 
 }
@@ -3169,32 +2474,20 @@ location.reload();
 
 
 /* =====================================================
-   DAILY STREAK
+   STREAK
 ===================================================== */
 
-let today =
-new Date()
-.toISOString()
-.slice(0,10);
+let today=
+new Date().toISOString().slice(0,10);
 
+let lastLogin=
+localStorage.getItem("lastLogin");
 
-let lastLogin =
-localStorage.getItem(
-"lastLogin"
-);
-
-
-if(
-lastLogin!==today
-){
+if(lastLogin!==today){
 
 streak++;
 
-
-localStorage.setItem(
-"lastLogin",
-today
-);
+localStorage.setItem("lastLogin",today);
 
 save();
 
@@ -3205,31 +2498,14 @@ save();
    STARTUP
 ===================================================== */
 
-document.getElementById(
-"musicButton"
-).textContent=
-music
-?
-"ON"
-:
-"OFF";
+document.getElementById("musicButton").textContent=
+music?"ON":"OFF";
 
-
-document.getElementById(
-"popupButton"
-).textContent=
-popups
-?
-"ON"
-:
-"OFF";
-
+document.getElementById("popupButton").textContent=
+popups?"ON":"OFF";
 
 buildMemory();
-
 updateUI();
-
-loadShop();
 
 </script>
 
